@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Colorful Calculator</title>
+    <style>
+        
+      
+        body,html {
+            font-family: Arial, sans-serif;
+            background-image: linear-gradient(135deg,rgb(179, 85, 85),rgb(45, 43, 47),rgb(61, 50, 63),rgb(252, 91, 118))  ;
+            padding: 0;
+            height: 100%;
+            margin: 0;
+        }
+        
+        #calculator {
+            width: 300px;
+            height: 400px;
+            margin: 0 auto;
+            padding: 50px;
+            background-color: grey;
+            border: 4px solid black;
+            
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            position: center;
+            box-shadow : 5px 5px 5px black inset;
+        }
+        input[type="text"] {
+            width: 300px;
+            height: 50px;
+            padding: 8px;
+            margin-bottom: 10px;
+            border:4px solid rgb(96, 96, 96);
+            border-radius: 6px;
+            position: center;
+            box-shadow : 5px 5px 5px black inset;
+           
+            
+
+        }
+        button {
+            width: 75px;
+            height: 75px;
+            margin: 2px;
+            font-size: 20px;
+            border: 2px solid blue;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #ffffff;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #ddd ;
+        }
+
+        /* Colorful button styles */
+        .operator {
+            background-color:black ;
+            color: #fff;
+            border: 1px solid #ff9f1a;
+            box-shadow: 0px 0px 1px #030303,inset 0px -35px 2px #171616;
+        }
+        .operator:hover {
+            background-color: #ff8300;
+        }
+        .equal {
+            background-color: #000000;
+            color: #fff;
+            border: 1px solid #17a2b8;
+            box-shadow: 0px 0px 1px #030303,inset 0px -35px 2px #171616;
+        }
+        .equal:hover {
+            background-color: #138496;
+        }
+        .clear {
+            background-color: rgb(227, 15, 15);
+            color: #fff;
+            border: 1px solid #dc3545;
+            box-shadow: 0px 0px 1px #030303,inset 0px -35px 2px #b00000;
+        }
+        .clear:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <center><h1 style =>Calculator</h1></center>
+    <div id="calculator">
+        
+        <input style="font-size:35px;" type="text" id="display" readonly>
+        <table>
+            <tr>
+                
+                <td><button onclick="appendToDisplay('7')">7</button></td>
+                <td><button onclick="appendToDisplay('8')">8</button></td>
+                <td><button onclick="appendToDisplay('9')">9</button></td>
+                <td><button class="operator" onclick="appendToDisplay('+')">+</button></td>
+               
+            </tr>
+            <tr>
+                <td><button onclick="appendToDisplay('4')">4</button></td>
+                <td><button onclick="appendToDisplay('5')">5</button></td>
+                <td><button onclick="appendToDisplay('6')">6</button></td>
+                <td><button class="operator" onclick="appendToDisplay('-')">-</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="appendToDisplay('1')">1</button></td>
+                <td><button onclick="appendToDisplay('2')">2</button></td>
+                <td><button onclick="appendToDisplay('3')">3</button></td>
+                <td><button class="operator" onclick="appendToDisplay('*')">*</button></td>
+            </tr>
+            <tr>
+                <td style="color:cyan;"><button class="clear" onclick="clearDisplay()">C</button></td>
+                <td><button onclick="appendToDisplay('0')">0</button></td>
+               
+                <td><button class="equal" onclick="calculateResult()">=</button></td>
+                <td><button class="operator" onclick="appendToDisplay('/')">/</button></td>
+               
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        // JavaScript functions for calculator operations
+        function appendToDisplay(value) {
+            document.getElementById('display').value += value;
+        }
+
+        function clearDisplay() {
+            document.getElementById('display').value =''; 
+        }
+
+        function calculateResult() {
+            try {
+                document.getElementById('display').value = eval(document.getElementById('display').value);
+            } catch (error) {
+                document.getElementById('display').value = 'Error';
+            }
+        }
+    </script>
+</body>
+</html>
